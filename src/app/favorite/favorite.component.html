@@ -1,0 +1,27 @@
+
+<div class="content">
+  <h2>User Ratings</h2>
+  <i class="fa fa-star"
+    [class.fa-star-active]="isStarActive"
+    (click)="onStarToggle()"></i>
+    <div class="content" *ngIf="starCount > 1; then multipleStar else lessStar"></div>
+    <ng-template #multipleStar>
+      You currently have {{ starCount }} stars.
+    </ng-template>
+    <ng-template #lessStar>
+      You currently have {{ starCount }} star.
+    </ng-template>
+
+    <br>
+
+    <i class="fa fa-heart"
+    [class.fa-heart-active]="isHeartActive"
+    (click)="onHeartToggle()"></i>
+    <div class="content"*ngIf="heartCount > 1; then multipleHeart else lessHeart"></div>
+    <ng-template #multipleHeart>
+      You currently have {{ heartCount }} hearts.
+    </ng-template>
+    <ng-template #lessHeart>
+      You currently have {{ heartCount }} heart.
+    </ng-template>
+</div>
