@@ -1,4 +1,51 @@
-<app-favorite></app-favorite>
-<app-authors></app-authors>
-<app-courses></app-courses>
+<!--
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link"
+      [class.active]="viewMode =='authors'"
+      (click)="viewMode = 'authors'">Authors</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+    [class.active]="viewMode =='courses'"
+    (click)="viewMode = 'courses'">Courses</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+      [class.active]="viewMode == 'favorite'"
+      (click)="viewMode = 'favorite'">Favorite</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+      [class.active]="viewMode == 'zippy'"
+      (click)="viewMode = 'zippy'">Zippy</a>
+  </li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'authors'">
+    <app-authors></app-authors>
+  </div>
+  <div *ngSwitchCase="'courses'">
+    <app-courses></app-courses>
+  </div>
+  <div *ngSwitchCase="'favorite'">
+    <app-favorite></app-favorite>
+  </div>
+  <div *ngSwitchCase="'zippy'">
+    <app-zippy></app-zippy>
+  </div>
+  <div *ngSwitchDefault>
+    Defalt View Content
+  </div>
+</div> -->
+<div>
+  <app-courses></app-courses>
+
+  <app-zippy title="Shipping Details">
+    Shipping Details Content
+  </app-zippy>
+</div>
+
+
 <router-outlet></router-outlet>

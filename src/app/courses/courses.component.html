@@ -1,9 +1,31 @@
 <div>
   <h2>{{ courses.length }} Web Development Courses</h2>
   <ul>
-    <li *ngFor="let course of courses">
-      {{ course }}
+    <li *ngFor="let course of courses; index as i even as isEven trackBy: trackCourse"
+      [class.highlighted]="isEven">
+      <i class="fa fa-heart"
+        [ngClass]="{
+          'active': isEven,
+          'inactive': !isEven }"></i>
+        index: {{ i }} | id: {{course.id}} | {{ course.name }}
+        <i class="fa fa-edit text-warning float-right"
+          (click)="onUpdate(course)"></i>
+        <i class="fa fa-trash text-danger float-right"
+          (click)="onRemove(course)"></i>
     </li>
   </ul>
+  <hr>
+  <div>
+    <label for="title">Course Title</label>
+    <input id="title"
+      type="text"
+      class="form-control"
+      [(ngModel)]="courseInputValue"
+      [appInputFormat]="'uppercase'">
+    <button class="btn btn-primary"
+      (click)="onAdd()">
+      Add Course
+    </button>
+  </div>
 </div>
 

@@ -1,0 +1,27 @@
+
+<div class="accordion"
+  id="accordionExample">
+  <div class="card">
+    <div class="card-header zippy-title"
+      id="headingOne">
+        {{ title }}
+      <i class="fa fa-plus float-right"
+        [class.fa-plus]="!isExpanded"
+        [class.fa-minus]="isExpanded"
+        data-toggle="collapse"
+        data-target="#collapseOne"
+        aria-controls="collapseOne"
+        (click)="onToggle()">
+      </i>
+    </div>
+
+    <div id="collapseOne"
+      class="collapse show"
+      aria-labelledby="headingOne"
+      data-parent="#accordionExample">
+      <div class="card-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
