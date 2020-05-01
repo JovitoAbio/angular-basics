@@ -1,0 +1,34 @@
+<form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+  <div class="form-group">
+    <label for="courseTitle">Course Title</label>
+    <input class="form-control" [class.is-invalid]="courseTitle.touched && courseTitle.invalid" type="text"
+      required
+      minlength="5"
+      name="courseTitle" ngModel #courseTitle="ngModel">
+    <div *ngIf="courseTitle.touched && courseTitle.invalid" class="alert alert-danger">
+      <div *ngIf="courseTitle.errors.required">Course title is required. Please enter a valid title.</div>
+      <div *ngIf="courseTitle.errors.minlength">
+        Course title should be at least {{ courseTitle.errors.minlength.requiredLength }} characters.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Category</label>
+    <select class="form-control" [class.is-invalid]="category.touched && category.invalid"
+      name="category" ngModel #category="ngModel" required>
+      <option value="">--Select a categrory</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+    <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+        Category is required. Please select a category.
+    </div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="hasGuarantee" ngModel #hasGuarantee="ngModel"> Has 30-day moneyback guarantee.
+    </label>
+  </div>
+  <p>{{ form.value | json}}</p>
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+    <i class="fa fa-send"></i> Submit
+  </button>
+</form>

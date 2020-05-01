@@ -9,6 +9,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { ZippyComponent } from './zippy/zippy.component';
 import { InputFormatDirective } from './input-format.directive';
 import { FormsModule } from '@angular/forms';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { AddCourseFormComponent } from './add-course-form/add-course-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     CoursesComponent,
     FavoriteComponent,
     ZippyComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    ContactFormComponent,
+    AddCourseFormComponent
   ],
   imports: [
     BrowserModule,
