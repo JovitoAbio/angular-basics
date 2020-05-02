@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" formControlName="name">
+  </div>
+  <div class="form-group row" formGroupName="contact">
+    <div class="col-md-6">
+      <label>Email</label>
+      <input class="form-control" type="text" formControlName="email">
+    </div>
+    <div class="col-md-6">
+      <label>Phone</label>
+      <input class="form-control" type="number" formControlName="phone">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Add your skills</label>
+    <input class="form-control" type="text" (keyup.enter)="addSkill(skill)" #skill>
+  </div>
+  <div class="form-group">
+    <ul class="list-group">
+      <li *ngFor="let skill of skills.controls"
+        class="list-group-item"
+        (click)="removeSkill(skill)">{{ skill.value }}</li>
+    </ul>
+  </div>
+</form>
